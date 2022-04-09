@@ -7,7 +7,8 @@ public class ToDoListPostgresService : IToDoListService
 {
     private readonly PostgresContext _context;
 
-    public ToDoListPostgresService(PostgresContext context) {
+    public ToDoListPostgresService(PostgresContext context)
+    {
         this._context = context;
     }
 
@@ -28,16 +29,9 @@ public class ToDoListPostgresService : IToDoListService
 
     public List<ToDoList> GetAll()
     {
-        try
-        {
-            List<ToDoList> toDoList = this._context.ToDoLists.ToList();
+        List<ToDoList> toDoList = this._context.ToDoLists.ToList();
 
-            return toDoList;
-        }
-        catch (Exception)
-        {
-            throw;
-        }
+        return toDoList;
     }
 
     public ToDoList GetToDoListById(int id)

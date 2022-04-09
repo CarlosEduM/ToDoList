@@ -11,4 +11,12 @@ public class PostgresContext : DbContext
         : base(options)
     {
     }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder) 
+    {
+        modelBuilder
+            .Entity<ToDoList>()
+            .Property(e => e.Done)
+            .HasConversion<int>();
+    }
 }

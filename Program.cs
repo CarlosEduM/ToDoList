@@ -1,4 +1,5 @@
 using ToDoListAPI.Data;
+using ToDoListAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +12,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PostgresContext>(
     options => options.UseNpgsql(@"Host=localhost;Username=postgres;Password=password;Database=postgres"));
+builder.Services.AddScoped<IToDoListService, ToDoListPostgresService>();
 
 var app = builder.Build();
 

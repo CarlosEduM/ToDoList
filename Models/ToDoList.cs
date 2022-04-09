@@ -1,9 +1,18 @@
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace ToDoListAPI.Models;
 
+[Table("to_do_list")]
 public class ToDoList
 {
+    [Column("id")]
     public int Id { get; set; }
+
+    [Required]
+    [Column("task")]
     public string Task { get; set; }
+    [Column("done")]
     public bool Done { get; set; }
 
 
