@@ -11,7 +11,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PostgresContext>(
-    options => options.UseNpgsql(@"Host=localhost;Username=postgres;Password=password;Database=postgres"));
+    options => options.UseNpgsql(@"Host=localhost;Username=postgres;Password=cadu@123;Database=postgres"));
 builder.Services.AddScoped<IToDoListService, ToDoListPostgresService>();
 
 var app = builder.Build();

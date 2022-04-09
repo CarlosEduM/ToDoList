@@ -27,20 +27,13 @@ public class ToDoListPostgresService : IToDoListService
         throw new NotImplementedException();
     }
 
-    public List<ToDoList> GetAll()
-    {
-        List<ToDoList> toDoList = this._context.ToDoLists.ToList();
-
-        return toDoList;
-    }
+    public List<ToDoList> GetAll() => this._context.ToDoLists.ToList();
 
     public ToDoList GetToDoListById(int id)
     {
         throw new NotImplementedException();
     }
 
-    public List<ToDoList> SearchFor(string text)
-    {
-        throw new NotImplementedException();
-    }
+    public List<ToDoList> SearchFor(string text) =>
+        this._context.ToDoLists.Where(tdList => tdList.Task.ToUpper().Contains(text.ToUpper())).ToList();
 }

@@ -18,4 +18,7 @@ public class ToDoListController : ControllerBase
     [HttpGet]
     public ActionResult<List<ToDoList>> GetAll() => this._service.GetAll();
 
+    [HttpPost("Search")]
+    public ActionResult<List<ToDoList>> GetSearch(ToDoList search) => this._service.SearchFor(search.Task);
+
 }
