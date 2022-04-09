@@ -14,7 +14,8 @@ public class ToDoListPostgresService : IToDoListService
 
     public void Add(ToDoList newToDoList)
     {
-        throw new NotImplementedException();
+        this._context.Add(newToDoList);
+        this._context.SaveChanges();
     }
 
     public void Delete(int id)

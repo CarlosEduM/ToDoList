@@ -21,4 +21,17 @@ public class ToDoListController : ControllerBase
     [HttpPost("Search")]
     public ActionResult<List<ToDoList>> GetSearch(ToDoList search) => this._service.SearchFor(search.Task);
 
+    [HttpPost]
+    public IActionResult Create(ToDoList newToDoList)
+    {
+        if (newToDoList.Task == "" || newToDoList.Task == null)
+        {
+            return BadRequest();
+        }
+
+        this._service.Add(newToDoList);
+
+        return CreatedAtAction(nameof(Create), new { id = newToDoList.Id }, newToDoList);
+    }
+
 }
