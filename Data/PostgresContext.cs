@@ -5,7 +5,7 @@ namespace ToDoListAPI.Data;
 
 public class PostgresContext : DbContext
 {
-    public DbSet<ToDoList> ToDoLists { get; set; }
+    public DbSet<ToDo> ToDoList { get; set; }
 
     public PostgresContext(DbContextOptions<PostgresContext> options) 
         : base(options)
@@ -15,7 +15,7 @@ public class PostgresContext : DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder) 
     {
         modelBuilder
-            .Entity<ToDoList>()
+            .Entity<ToDo>()
             .Property(e => e.Done)
             .HasConversion<int>();
     }

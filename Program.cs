@@ -16,7 +16,7 @@ builder.Services.AddDbContext<PostgresContext>(
         builder.Configuration.GetConnectionString("Postgres")
     ));
 // ToDoListPostgresService dependence
-builder.Services.AddScoped<IToDoListService, ToDoListPostgresService>();
+builder.Services.AddScoped<IToDoService, ToDoPostgresService>();
 
 
 var app = builder.Build();

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace ToDoListAPI.Models;
 
 [Table("to_do_list")]
-public class ToDoList
+public class ToDo
 {
     [Column("id")]
     public int Id { get; set; }
@@ -15,20 +15,20 @@ public class ToDoList
     public bool Done { get; set; }
 
 
-    public ToDoList()
+    public ToDo()
     {
         this.Task = "";
         this.Done = false;
     }
 
-    public ToDoList(int id, string task, bool done)
+    public ToDo(int id, string task, bool done)
     {
         this.Id = id;
         this.Task = task;
         this.Done = done;
     }
 
-    public ToDoList(string task)
+    public ToDo(string task)
     {
         this.Task = task;
         this.Done = false;
