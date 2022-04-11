@@ -8,11 +8,11 @@ public interface IToDoListService
 
     public List<ToDoList> SearchFor(string text);
 
-    public ToDoList GetToDoListById(int id);
+    public ToDoList GetById(int id);
 
-    public void Edit(int id, ToDoList newToDoList);
+    public void Edit(ToDoList toDoList);
 
-    public void Add(ToDoList newToDoList);
+    public void Add(ToDoList toDoList);
 
-    public void Delete(int id);
+    public void Delete(ToDoList toDoList);
 }

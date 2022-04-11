@@ -10,9 +10,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// Posgres dependence
 builder.Services.AddDbContext<PostgresContext>(
-    options => options.UseNpgsql(@"Host=localhost;Username=postgres;Password=cadu@123;Database=postgres"));
+    options => options.UseNpgsql(
+        builder.Configuration.GetConnectionString("Postgres")
+    ));
+// ToDoListPostgresService dependence
 builder.Services.AddScoped<IToDoListService, ToDoListPostgresService>();
+
 
 var app = builder.Build();
 

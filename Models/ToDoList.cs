@@ -8,7 +8,6 @@ public class ToDoList
 {
     [Column("id")]
     public int Id { get; set; }
-
     [Required]
     [Column("task")]
     public string Task { get; set; }
